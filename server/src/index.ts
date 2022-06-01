@@ -4,7 +4,7 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-01 16:49:06
+ * @LastEditTime: 2022-06-01 23:45:42
  */
 import express from 'express';
 import http from 'http';
@@ -12,6 +12,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import {Server, Socket} from 'socket.io'
 import { strict } from 'assert';
+import path from 'path';
 
 
 const app = express()
@@ -44,7 +45,6 @@ io.on("connection", (socket: Socket) => {
   })
 })
 
-app.use("/", express.static(__dirname + "/public"))
 
 server.listen(3001, () => {
     console.log('server is running on port 3001')

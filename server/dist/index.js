@@ -9,7 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-05-31 23:04:38
+ * @LastEditTime: 2022-06-01 23:45:42
  */
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
@@ -31,7 +31,6 @@ io.on("connection", (socket) => {
     });
     socket.on("send_message", (data) => {
         console.log(`message ===> ${data}`);
-        console.log(JSON.parse(data).room);
         socket.to(JSON.parse(data).room).emit("receive_message", data);
     });
     socket.on("disconnect", () => {
