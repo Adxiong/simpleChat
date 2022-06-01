@@ -13,7 +13,7 @@ import { io } from 'socket.io-client';
 import Login from './components/login';
 import Chat from './components/chat';
 
-const socket = io('http://simple-chat-opal.vercel.app');
+const socket = io('http://simple-chat-opal.vercel.app:3001');
 
 function App() {
   const [userInfo, setUserInfo] = useState({
