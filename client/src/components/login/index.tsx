@@ -4,7 +4,7 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 22:14:51
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-01 00:12:07
+ * @LastEditTime: 2022-06-01 15:24:07
  */
 import { BaseSyntheticEvent, useState } from 'react';
 import { Socket } from 'socket.io-client';
@@ -28,7 +28,12 @@ const Login = (props: LoginProps) => {
   };
 
   return (
-    <div className="login flex flex-col items-center">
+    <div
+      className="login flex flex-col items-center"
+      onKeyUp={(event) => {
+        if (event.key === 'Enter') handleLoginClick();
+      }}
+    >
       <label>
         <span>用户名</span>
         <input
@@ -40,7 +45,10 @@ const Login = (props: LoginProps) => {
         <span>房间号</span>
         <input type="text" onChange={(event) => setRoom(event.target.value)} />
       </label>
-      <button className="w-100" onClick={handleLoginClick}>
+      <button
+        className="w-100 bg-sky-500 b-none c-white font-bold h-8"
+        onClick={handleLoginClick}
+      >
         登录
       </button>
     </div>

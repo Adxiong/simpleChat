@@ -4,10 +4,10 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 22:17:10
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-01 00:14:02
+ * @LastEditTime: 2022-06-01 16:45:02
  */
 
-import { BaseSyntheticEvent, useEffect, useState } from 'react';
+import { BaseSyntheticEvent, useEffect, useRef, useState } from 'react';
 import { Socket } from 'socket.io-client';
 
 interface ChatProps {
@@ -46,30 +46,49 @@ const Chat = (props: ChatProps) => {
   }, []);
 
   return (
-    <div>
-      <div>
-        <span>online</span>
+    <div
+      className="flex flex-col items-center w-100 b-1 m-auto"
+      onKeyUp={(event) => {
+        if (event.key == 'Enter') {
+          handleSendClick();
+        }
+      }}
+    >
+      <div className="b-1 w-100%">
+        <span>聊天室：{room}</span>
       </div>
-      <div>
+      <div className="h-100 b-1 w-100% overflow-y-scroll">
         {message.map((item, index) => {
           return (
-            <div key={index}>
-              <div>{item.content}</div>
+            <div
+              key={index}
+              className={
+                item.username == username
+                  ? 'flex flex-col items-end mr-3 mt-3 '
+                  : 'flex flex-col items-start ml-3 mt-3'
+              }
+            >
+              <div className="bg-sky-500 c-white text-3 p-2 max-w-80 box-border text-left b-rd-1.5">
+                {item.content}
+              </div>
               <div>
-                <span>{item.username}</span>
-                <span>{item.time}</span>
+                <span className="text-4">{item.username}</span>
+                <span className="ml-2 text-2">{item.time}</span>
               </div>
             </div>
           );
         })}
       </div>
-      <div>
+      <div className="w-100% flex h-10">
         <input
+          className="flex-1"
           type="text"
           value={sendMessage}
           onChange={(event) => setSendMessage(event.target.value)}
         />
-        <button onClick={handleSendClick}>send</button>
+        <button className="flex-2" onClick={handleSendClick}>
+          send
+        </button>
       </div>
     </div>
   );
