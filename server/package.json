@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc && nodemon dist/index.js",
-    "start": "tsc && node dist/index.js",
-    "test": "jest"
+    "dev-start": "tsc && node dist/index.js",
+    "test": "jest",
+    "start": "vercel dev-start",
+    "deploy": "vercel deploy --prod"
   },
   "keywords": [],
   "author": "",
