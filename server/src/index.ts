@@ -4,7 +4,7 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-02 00:03:28
+ * @LastEditTime: 2022-06-02 00:05:20
  */
 import express from 'express';
 import http from 'http';
@@ -20,7 +20,7 @@ app.use(cors())
 const server = http.createServer(app) 
 const io = new Server(server, {
   cors:{
-    origin:"https://simple-chat-opal.vercel.app",
+    origin:"https://simple-chat-client.vercel.app",
     methods: ['post', 'get'],
   }
 })
