@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "tsc && nodemon dist/index.js",
     "start": "tsc && node dist/index.js",
-    "build": "tsc",
     "test": "jest"
   },
   "keywords": [],
