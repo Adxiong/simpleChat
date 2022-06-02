@@ -4,14 +4,14 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-02 14:29:19
+ * @LastEditTime: 2022-06-02 14:56:49
  */
 import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import {Server, Socket} from 'socket.io'
-const api = require('./api/api');
+const api = require('./controll/api');
 
 const app = express()
 app.use(cors())

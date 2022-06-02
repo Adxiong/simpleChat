@@ -6,9 +6,7 @@
   "scripts": {
     "dev": "tsc && nodemon dist/index.js",
     "test": "jest",
-    "build": "node dist/index.js",
-    "start": "vercel dev",
-    "deploy": "vercel deploy --prod"
+    "start": "tsc && node dist/index.js"
   },
   "keywords": [],
   "author": "",
