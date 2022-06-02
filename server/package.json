@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc && nodemon dist/index.js",
-    "dev-start": "tsc && node dist/index.js",
+    "devStart": "tsc && node dist/index.js",
     "test": "jest",
-    "start": "vercel dev-start",
+    "start": "vercel dev",
     "deploy": "vercel deploy --prod"
   },
   "keywords": [],
@@ -21,6 +21,7 @@
     "typescript": "^4.7.2"
   },
   "dependencies": {
+    "@vercel/node": "^1.15.4",
     "cors": "^2.8.5",
     "express": "^4.18.1",
     "socket.io": "^4.5.1"
