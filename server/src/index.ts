@@ -4,16 +4,14 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-02 00:05:20
+ * @LastEditTime: 2022-06-02 12:09:34
  */
 import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import {Server, Socket} from 'socket.io'
-import { strict } from 'assert';
-import path from 'path';
-
+import api from "./controll/api"
 
 const app = express()
 app.use(cors())
@@ -46,6 +44,7 @@ io.on("connection", (socket: Socket) => {
 })
 
 
+app.use('/api', api)
 server.listen(3001, () => {
     console.log('server is running on port 3001')
 })
