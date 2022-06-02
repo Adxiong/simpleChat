@@ -4,17 +4,21 @@
  * @Author: Adxiong
  * @Date: 2022-05-31 20:53:16
  * @LastEditors: Adxiong
- * @LastEditTime: 2022-06-02 12:09:34
+ * @LastEditTime: 2022-06-02 14:29:19
  */
 import express from 'express';
 import http from 'http';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import {Server, Socket} from 'socket.io'
-import api from "./controll/api"
+const api = require('./api/api');
 
 const app = express()
 app.use(cors())
+app.use(bodyParser.json())
+
+app.use('/api', api)
+
 const server = http.createServer(app) 
 const io = new Server(server, {
   cors:{
@@ -44,7 +48,6 @@ io.on("connection", (socket: Socket) => {
 })
 
 
-app.use('/api', api)
 server.listen(3001, () => {
     console.log('server is running on port 3001')
 })
