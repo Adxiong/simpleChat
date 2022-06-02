@@ -8,7 +8,7 @@
     "devStart": "tsc && node dist/index.js",
     "test": "jest",
     "build": "tsc",
-    "start": "vercel dev",
+    "start": "vercel dev && devStart",
     "deploy": "vercel deploy --prod"
   },
   "keywords": [],
